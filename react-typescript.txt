@@ -1,0 +1,35 @@
+
+************************************************************
+React + TypeScript: Crear aplicación de React con Typescript
+************************************************************
+
+npx create-react-app mi-app --template typescript
+npm start
+
+Borrar:
+-App.css
+-App.test.tsx
+-index.css
+-logo.svg
+-reportWebVitals.d.ts
+
+Dejar muy simple:
+-App.tsx
+-index.tsx
+
+Modificar:
+index.html
+→ Añadir bootstrap con <link ref.../>
+→ Añadir clases <body class="container bg-dark text-white">
+
+
+
+
+
+
+
+
+
+*****************************
+React + TypeScript: useState
+*****************************
