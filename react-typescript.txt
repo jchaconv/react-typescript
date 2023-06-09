@@ -125,3 +125,64 @@ const tempUser: User = {
 Y lo podemos establecer como initialState en el useState:
 
 const [user, setUser] = useState<User>(tempUser);
+
+
+
+******************************************************
+React + TypeScript: useEffect + useRef + Custom Props
+******************************************************
+
+Se usa así para sumar los segundos:
+setSegundos( s => s + 1 )
+
+useEffect → Cuando cambia el estado de la dependencia se dispara el callback
+
+Crear:
+-/src/components/TimerPadre.tsx
+-/src/components/Timer.tsx
+
+Para recibir como argumento en el componente se usó type de esta manera:
+
+type TimerArgs = {
+    milisegundos: number,
+    segundos?: number, //lleva ? para indicar que es opcional
+}
+
+export const Timer = ( args: TimerArgs ) => {
+    ...
+} 
+
+Al desestructurar se ve así:
+
+export const Timer = ( {milisegundos}: TimerArgs ) => {
+    ...
+}    
+
+Y al enviarle desde el TimerPadre se ve así y no marca error:
+
+<Timer milisegundos={ milisegundos } />
+
+
+Se usó el ejemplo de interval, cuando se puso la dependencia de milisegundos
+se acumulaban los interval y eso hacía que se ejecute más rápido el timer.
+
+Por eso es necesario hacer la limpieza del interval cuando el componente se destruye
+Al pasar el cursor por setInterval() se ve que el retorno es NodeJS.Timer
+
+useRef → Crea referencia de un valor en memoria sin importar cuantas veces se reconstruya el componente
+
+Con esto tengo la referencia al interval para limpiarlo(con clearInterval() de js) cuando cambie los milisegundos, por eso llamo a ref.current
+
+const ref = useRef<NodeJS.Timer>();
+
+
+
+
+
+
+
+
+
+
+
+

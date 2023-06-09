@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 export const Counter = () => {
 
@@ -9,8 +9,8 @@ export const Counter = () => {
     }
 
     return (
-        <div className='mt-5'>
-            <h3>Counter: useState</h3>
+        <div className='mt-3'>
+            <h3>Counter</h3>
             <span>Valor: { counter }</span>
             <br />
 
