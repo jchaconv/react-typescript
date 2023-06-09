@@ -3,6 +3,8 @@
 React + TypeScript: Crear aplicación de React con Typescript
 ************************************************************
 
+Configuraciones iniciales:
+
 npx create-react-app mi-app --template typescript
 npm start
 
@@ -22,14 +24,104 @@ index.html
 → Añadir bootstrap con <link ref.../>
 → Añadir clases <body class="container bg-dark text-white">
 
-
-
-
-
-
-
-
-
 *****************************
 React + TypeScript: useState
 *****************************
+
+Ejemplo del Counter:
+
+
+Crear:
+-/src/components/Counter.tsx
+
+Modificar:
+- App.tsx → Importar Counter
+
+Tipado:
+
+tsconfig.json tiene la propiedad "strict":true,
+esto no nos permite dejar como any los parámetros
+
+const [counter, setCounter] = useState(0);
+Al ponerle valor inicial 0 el useState pasa a tener este tipado → useState<number>
+el rombo <> indica un genérico, en este caso contiene number porque reconoció lo que puse
+
+Para indicar que la función no retorna nada:
+const incrementar = ():void => {
+    setCounter( counter + 1);
+}
+
+Se especifica que reciba el numero de tipo number y por defecto sea 1
+
+const incrementar = ( numero: number = 1 ):void => {
+    setCounter( counter + numero );
+}
+
+Sin embargo, se tiene que llamar de esta manera a la función para que evite
+mandarle el evento y le pase el número . Si se deja vacío toma valor 1
+<button
+    onClick={ () => incrementar(2) }
+    className='btn btn-outline-primary mt-2'
+>
+
+Para un reset se hizo con el setCounter de esta manera:
+<button
+    onClick={ () => setCounter(0) }
+    className='btn btn-outline-danger mt-2'
+>
+
+
+***********************
+
+Ejemplo del User:
+
+
+Crear:
+-/src/components/Usuario.tsx
+
+Se crea la interfaz para usarla en el tipado:
+
+interface User {
+    uid: string;
+    name: string;
+}
+
+Aquí defino que useState será de tipo User:
+
+const [user, setUser] = useState<User>();
+
+Cuando uso el setUser con los valores como aparecen aquí ya no marca error y los reconoce bien:
+
+const login = () => {
+    setUser({
+        uid: 'ABC1213',
+        name: 'Julio Chacon'
+    });
+}
+
+Si se quiere poner valores por defecto al useState se puede hacer así,
+satisfaciendo la estructura de la interfaz que definimos:
+
+const [user, setUser] = useState<User>({
+    uid: '',
+    name: ''
+});
+
+A partir de lo que tenemos se puede hacer algo más dinámico para mostrar algo si no hay usuario:
+{
+    (!user)
+        ? <pre className="mt-2">No hay usuario</pre>
+        : <pre className="mt-2">{ JSON.stringify( user )}</pre>
+}
+
+
+También se puede crear un objeto del tipo de la interfaz
+
+const tempUser: User = {
+    uid: 'Qwertty',
+    name: 'TempUser'
+}
+
+Y lo podemos establecer como initialState en el useState:
+
+const [user, setUser] = useState<User>(tempUser);
