@@ -1,4 +1,8 @@
 
+Sobre la playlist:
+
+
+
 ************************************************************
 React + TypeScript: Crear aplicación de React con Typescript
 ************************************************************
@@ -175,9 +179,40 @@ Con esto tengo la referencia al interval para limpiarlo(con clearInterval() de j
 
 const ref = useRef<NodeJS.Timer>();
 
+*******************************
+React + TypeScript: useReducer
+*******************************
 
+useReducer: mantener el estado pero maneja más complejidad que el useState.
+            recibe un state y action, siempre retorna un nuevo state.
 
+Crear:
+- src/components/ContadorRed.tsx
 
+Tipado:
+
+Se puede usar typeof para indicar que será del tipo del objeto initialState
+y también se puede usar un type para el action. Recordar que se debe escribir
+bien el reducer con los return respectivos para evitar erorres.
+
+const contadorReducer = ( state: typeof initialState, action: ActionType ) => {
+    ...
+}
+
+Para enviar la acción se hizo de esta manera respetando el type creado para la acción:
+onClick={ () => dispatch({ type: 'incrementar' }) }
+
+Cuando se quiere enviar un parámetro además del type se tiene que usar el action:
+
+| { type: 'custom', payload: number }
+
+Y para llamarlo:
+onClick={ () => dispatch({ type: 'custom', payload: 100 }) }
+
+Se puede aplicar desestructuración pero la sintáxis se ve rara en el código:
+const [{contador}, dispatch] = useReducer(contadorReducer, initialState);
+
+He creado UserRed.tsx para practicar useReducer().
 
 
 
