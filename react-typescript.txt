@@ -214,6 +214,34 @@ const [{contador}, dispatch] = useReducer(contadorReducer, initialState);
 
 He creado UserRed.tsx para practicar useReducer().
 
+********************************
+React + TypeScript: customHooks
+********************************
+
+(Ver comentarios en los componentes)
+
+Componente sin customhook:
+
+Formulario.tsx
+* Declarar el tipo de dato de un event de tipo Input
+* Propiedad computada
+
+Componente con customHook, surge la necesidad de crearlo para poder reutilizarlo.
+
+Crear:
+- /src/hooks/useForm.tsx
+    * Genéricos al declarar el hook
+    * Retornar el state completo y desestructurado con ...state
+- /src/components/Formulario2.tsx
+    * Declarar el tipo de dato que tendrá el initialState del useForm
+    * Obtener y usar el state completo y desestructurado
+     
+
+
+
+
+
+
 
 
 

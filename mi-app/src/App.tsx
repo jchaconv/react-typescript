@@ -1,5 +1,7 @@
 import { ContadorRed } from "./components/ContadorRed";
 import { Counter } from "./components/Counter";
+import { Formulario } from "./components/Formulario";
+import { Formulario2 } from "./components/Formulario2";
 import { TimerPadre } from "./components/TimerPadre";
 import { UserRed } from "./components/UserRed";
 import { Usuario } from "./components/Usuario";
@@ -25,6 +27,14 @@ function App() {
         <ContadorRed />
         <br />
         <UserRed />
+        <br />
+
+        <Formulario />
+        <br />
+        <hr />
+
+        <Formulario2 />
+        
         
 
       </>
