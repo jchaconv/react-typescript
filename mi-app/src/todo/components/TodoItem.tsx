@@ -25,7 +25,7 @@ export const TodoItem = ({ todo }: props) => {
             style={{
                 cursor: 'pointer',
                 textDecoration: todo.completed ? 'line-through' : ''
-            }}        
+            }}
         >
             {todo.desc}
         </li>

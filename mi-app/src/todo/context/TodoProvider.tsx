@@ -41,7 +41,7 @@ export const TodoProvider = ({ children }: props) => {
         //Esto sirve para que todos los hijos tengan acceso a la info
         <TodoContext.Provider value={{
             todoState,
-            toggleTodo        
+            toggleTodo
         }}        
         >
             { children }
