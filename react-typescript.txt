@@ -236,16 +236,22 @@ Crear:
     * Declarar el tipo de dato que tendrá el initialState del useForm
     * Obtener y usar el state completo y desestructurado
      
+****************************************************************
+React + TypeScript: useContext , createContext, ContextProvider
+****************************************************************
 
+context: contenedor de info que puede ser utilizado por todos los componentes
 
+Crear:
 
+/src/todo/context/TodoContext.tsx
+/src/todo/context/TodoProvider.tsx
 
+/src/todo/Todo.tsx => Es englobado por el Provider
 
+/src/todo/context/todoReducer.ts
 
+/src/todo/components/TodoList.tsx
 
-
-
-
-
-
-
+/src/todo/hooks/useTodos.ts
+/src/todo/interfaces/interfaces.ts

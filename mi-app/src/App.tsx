@@ -5,6 +5,7 @@ import { Formulario2 } from "./components/Formulario2";
 import { TimerPadre } from "./components/TimerPadre";
 import { UserRed } from "./components/UserRed";
 import { Usuario } from "./components/Usuario";
+import { Todo } from "./todo/Todo";
 
 
 function App() {
@@ -34,7 +35,10 @@ function App() {
         <hr />
 
         <Formulario2 />
+        <hr />
+        <br />
         
+        <Todo />
         
 
       </>
