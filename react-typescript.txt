@@ -1,7 +1,6 @@
 
 Sobre la playlist:
-
-
+https://www.youtube.com/playlist?list=PLCKuOXG0bPi26-eawizqyLOgM7j66H_4M
 
 ************************************************************
 React + TypeScript: Crear aplicación de React con Typescript
